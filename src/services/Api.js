@@ -13,7 +13,7 @@ export const fetchMovies = async page => {
   const response = await axios.get(`/trending/movie/day?language=en-US`, {
     params,
   });
-  console.log(response.data);
+  
   return response.data;
 };
 
@@ -21,7 +21,7 @@ export const fetchSearchMovies = async ({ title }) => {
   const response = await axios.get(
     `/search/movie?include_adult=false&language=en-US&page=1&query=${title}`
   );
-  console.log(response.data);
+  
   return response.data;
 };
 export const fetchMovieById = async movieId => {
@@ -31,13 +31,13 @@ export const fetchMovieById = async movieId => {
       language: 'en-US',
     },
   });
-  console.log(response.data);
+ 
   return response.data;
 };
 
 export const fetchCast = async movieId => {
   const response = await axios.get(`/movie/${movieId}/credits?language=en-US`);
-  console.log(response.data);
+
   return response.data;
 };
 
@@ -45,6 +45,6 @@ export const fetchReviews = async movieId => {
   const response = await axios.get(
     `movie/${movieId}/reviews?language=en-US&page=1`
   );
-  console.log(response.data);
+ 
   return response.data;
 };

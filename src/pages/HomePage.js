@@ -1,16 +1,9 @@
 // лише дефолтні експорти
 import { fetchMovies } from 'services/Api';
 import { useState, useEffect } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { styled } from 'styled-components';
-import { MoviesList } from 'components/MoviesList/MoviesList';
-// const StyledLink = styled(NavLink)`
-//   color: black;
 
-//   &.active {
-//     color: orange;
-//   }
-// `;
+import { MoviesList } from 'components/MoviesList/MoviesList';
+
 const HomePage = () => {
   const [trending, setTrending] = useState([]);
   const [page, setPage] = useState(1);

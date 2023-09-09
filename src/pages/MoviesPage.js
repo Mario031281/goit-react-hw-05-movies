@@ -9,11 +9,6 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
 
-  const value = newValue => {
-    const nextParams = newValue !== '' ? { query: newValue } : {};
-    setSearchParams(nextParams);
-  };
-
   useEffect(() => {
     if (!query) return;
     const controller = new AbortController();
@@ -34,6 +29,12 @@ const MoviesPage = () => {
       controller.abort();
     };
   }, [query]);
+
+  const value = newValue => {
+    const nextParams = newValue !== '' ? { query: newValue } : {};
+    setSearchParams(nextParams);
+  };
+
   const handleSubmit = evt => {
     evt.preventDefault();
     value(evt.target.elements.movie.value);
@@ -41,7 +42,7 @@ const MoviesPage = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="movie" onChange={e => value(e.target.value)} />
+        <input type="text" name="movie" />
         <button type="submit">Search movie</button>
       </form>
 

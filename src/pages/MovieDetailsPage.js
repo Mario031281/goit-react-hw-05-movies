@@ -1,36 +1,12 @@
-// /movies/:movieId/cast – компонент Cast, інформація про акторський склад. Рендериться на сторінці MovieDetails.
-// /movies/:movieId/reviews – компонент Reviews, інформація про огляди. Рендериться на сторінці MovieDetails.
 import { fetchMovieById } from 'services/Api';
 import { defaultImgUrl } from 'components/img/img';
 import { useEffect, useState, useRef, Suspense } from 'react';
 import { NavLink, useParams, useLocation, Outlet } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { styled } from 'styled-components';
-const StyledLink = styled(NavLink)`
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 40px;
-  font: green;
-  font-size: 16px;
-  font-weight: 600;
-  border: 2px solid;
-  margin: 8px;
-  border-radius: 5px;
-  &:hover,
-  &:focus {
-    color: #ffffff;
-    background-color: #0000ff;
-  }
-  &.active {
-    color: orange;
-  }
-`;
+import { StyledLink } from 'components/Link/Link.styled';
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  // console.log('movieId:', movieId);
+
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const goBackPath = useRef(location.state?.from ?? '/');
@@ -80,10 +56,10 @@ const MovieDetailsPage = () => {
         <ul>
           <hr />
           <li>
-            <NavLink to={`/movies/${movieId}/cast`}>Cast</NavLink>
+            <NavLink to={`cast`}>Cast</NavLink>
           </li>
           <li>
-            <NavLink to={`/movies/${movieId}/reviews`}>Reviews</NavLink>
+            <NavLink to={`reviews`}>Reviews</NavLink>
           </li>
         </ul>
         <Suspense fallback={<Loading />}>

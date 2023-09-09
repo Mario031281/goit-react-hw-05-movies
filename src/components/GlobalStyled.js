@@ -8,9 +8,8 @@ html {
   overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: inherit;
 }
 
@@ -47,7 +46,7 @@ button {
           :hover,
           :focus {
             background-color: #ff00ff;
-}
+}}
 ul {
     margin: 0;
     padding: 0;
@@ -66,6 +65,4 @@ ul {
   p {
     margin: 0;
     padding: 0;
-  }
-
-  `;
+  }`;

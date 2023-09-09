@@ -10,7 +10,7 @@ import {
   TextTitle,
 } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -54,3 +54,4 @@ export const Cast = () => {
     </CastStyled>
   );
 };
+export default Cast;
